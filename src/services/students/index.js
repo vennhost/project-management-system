@@ -5,6 +5,11 @@ const fs = require("fs")
 const router = express.Router()
 
 
+const filePath = path.join(__dirname + "/students.json")
+
+console.log(filePath)
+
+
 const readFile = (filePath) => {
     const buffer = fs.readFileSync(filePath);
     const content = buffer.toString();
@@ -13,11 +18,6 @@ const readFile = (filePath) => {
     console.log(mainFile);
 }
 
-
-
-
-
-const filePath = path.join(__dirname + "students.json")
 
 router.get("/:id", (req, res) => {
     const studentsArray = readFile(filePath);
